@@ -1,0 +1,13 @@
+{
+  "name": "lorikeet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.6.2"
+  }
+}
