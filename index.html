@@ -12,16 +12,13 @@
   <body>
     <template id="item-template">
       <div class="item">
-        <img class="icon" >
+        <img class="icon" />
         <div class="filename"></div>
       </div>
     </template>
     <div id="toolbar">
-      <div id="current-folder">
-        <script>
-          document.write(getUsersHomeFolder());
-        </script>
-      </div>
+      <div id="current-folder"></div>
+      <input type="search" id="search" results="5" placeholder="搜索">
     </div>
     <div id="main-area"></div>
   </body>

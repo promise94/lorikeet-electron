@@ -5,14 +5,16 @@ body {
 }
 
 #toolbar {
-  position: absolute;
   background-color: red;
+  box-sizing: border-box;
   width: 100%;
   padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #current-folder {
-  float: left;
   color: white;
   background-color: rgba(0, 0, 0, 0.2);
   padding: 0.5em 1em;
@@ -21,19 +23,18 @@ body {
 }
 
 #main-area {
-  clear: both;
   margin: 2em;
   margin-top: 3em;
-  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .item {
-  position: relative;
-  float: left;
+  flex-shrink: 0;
   padding: 1em;
   margin: 1em;
   width: 6em;
-  height: 6em;
+  /* height: 6em; */
   text-align: center;
 }
 .item .icon {
@@ -43,4 +44,14 @@ body {
 .item .filename {
   padding-top: 1em;
   font-size: 10pt;
+  word-break: break-all;
+}
+
+#search {
+  padding: .5em;
+  min-width: 10em;
+  border-radius: 3em;
+  margin: 2em 1em;
+  border: none;
+  outline: none;
 }
