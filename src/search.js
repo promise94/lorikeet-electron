@@ -23,7 +23,6 @@ function addToIndex(file) {
   // if (!index) {
   //   resetIndex();
   // }
-  console.dir(index);
   index.add(file);
 }
 

@@ -9,6 +9,7 @@
   "license": "ISC",
   "dependencies": {
     "async": "^2.6.2",
+    "electron": "^4.0.8",
     "lunr": "^1.0.0"
   }
 }

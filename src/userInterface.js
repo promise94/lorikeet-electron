@@ -2,6 +2,7 @@
 
 const fileSystem = require("./fileSystem");
 const search = require("./search");
+const path = require("path");
 
 // let document;
 
@@ -29,6 +30,22 @@ function displayFile(file) {
   mainArea.appendChild(clone);
 }
 
+function convertFolderPathIntoLinks(folderPath) {
+  const folders = folderPath.split(path.sep);
+  const contents = [];
+  let pathAtFolder = "";
+  folders.forEach(folder => {
+    pathAtFolder += folder + path.sep;
+    contents.push(
+      `<span class="path" data-path="${pathAtFolder.slice(
+        0,
+        -1
+      )}">${folder}</span>`
+    );
+  });
+  return contents.join(path.sep).toString();
+}
+
 function displayFiles(err, files) {
   if (err) {
     return alert("Sorry");
@@ -37,7 +54,11 @@ function displayFiles(err, files) {
 }
 
 function displayFolderPath(folderPath) {
-  document.getElementById("current-folder").innerText = folderPath;
+  document.getElementById(
+    "current-folder"
+  ).innerHTML = convertFolderPathIntoLinks(folderPath);
+
+  bindCurrentFolderPath();
 }
 
 function clearView() {
@@ -91,6 +112,23 @@ function resetFilter() {
   const items = document.getElementsByClassName("item");
   for (const item of items) {
     item.style = null;
+  }
+}
+
+function bindCurrentFolderPath() {
+  const load = event => {
+    console.dir(event);
+    try {
+      const folderPath = event.target.getAttribute("data-path");
+      loadDirectory(folderPath)();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const paths = document.querySelectorAll(".path");
+  for (let index = 0; index < paths.length; index++) {
+    paths[index].addEventListener("click", load, false);
   }
 }
 
