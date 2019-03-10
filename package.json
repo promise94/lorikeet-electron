@@ -1,15 +1,38 @@
 {
   "name": "lorikeet",
   "version": "1.0.0",
-  "description": "",
   "main": "main.js",
-  "scripts": {},
+  "author": "李孝威 <promise9495@163.com>",
+  "description": "一个文件浏览应用。",
+  "scripts": {
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win --x64",
+    "build-pack": "electron-packager . --asar --platform=all"
+  },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "async": "^2.6.2",
-    "electron": "^4.0.8",
     "lunr": "^1.0.0"
+  },
+  "devDependencies": {
+    "electron": "^4.0.8",
+    "electron-builder": "^20.38.5",
+    "electron-packager": "^13.1.1"
+  },
+  "build": {
+    "appId": "nhlxw.cn",
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ]
+    }
   }
 }

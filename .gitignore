@@ -1,3 +1,6 @@
 node_modules
 .vs
 package-lock.json
+dist/*
+lorikeet-linux**
+lorikeet-win32**
