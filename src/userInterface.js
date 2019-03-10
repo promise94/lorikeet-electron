@@ -25,8 +25,16 @@ function displayFile(file) {
       },
       false
     );
+  } else {
+    clone.querySelector("img").addEventListener(
+      "dblclick",
+      () => {
+        fileSystem.openFile(file.path);
+      },
+      false
+    );
   }
-
+  clone.querySelector(".filename").innerText = file.file;
   mainArea.appendChild(clone);
 }
 

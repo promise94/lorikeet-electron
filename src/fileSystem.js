@@ -45,9 +45,19 @@ function inspectAndDescribeFile(filePath, cb) {
   });
 }
 
+let shell = null;
+if (process.versions.electron) {
+  shell = require("electron").shell;
+} else {
+  shell = require("nw.gui").Shell;
+}
+function openFile(filePath) {
+  shell.openItem(filePath);
+}
 
 module.exports = {
   getUsersHomeFolder,
   getFilesInFolder,
-  inspectAndDescribeFiles
-}
+  inspectAndDescribeFiles,
+  openFile
+};
